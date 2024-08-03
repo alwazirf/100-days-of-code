@@ -37,11 +37,9 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 # else:
 #     print("the keyword is missing")
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt: \n")
-text = input("Type your message: \n").lower()
-shiff = int(input("Type the shiff number: \n"))
+import art
 
-
+print(art.logo)
 
 #combine the encrypt() and decrypt() to caesar().
 #Alwa version
@@ -62,9 +60,24 @@ def caesar(direction, plain_text, shiff):
     cipher_text = ""
     if direction == "decode":
         shiff *= -1
-    for letter in plain_text:
-        position = alphabet.index(letter)
-        cipher_text += alphabet[position+shiff]
+    for char in plain_text:
+        if char in alphabet:
+            position = alphabet.index(char)
+            cipher_text += alphabet[position+shiff]
+        else:
+            cipher_text += char
     print(f"The {direction} text is {cipher_text}")
+    
+is_continue = True
+while is_continue:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt: \n")
+    text = input("Type your message: \n").lower()
+    shiff = int(input("Type the shiff number: \n"))
+    shiff = shiff % 26
 
-caesar(direction=direction, plain_text=text, shiff=shiff)
+    caesar(direction=direction, plain_text=text, shiff=shiff)
+    
+    result = input("Type 'yes' if you want to go again. Otherwise type 'no' if not \n")
+    if result == "no":
+        is_continue = False
+        print("Goodbye")
