@@ -1,28 +1,35 @@
+def add(n1,n2):
+    return n1+n2
+
+def subtract(n1,n2):
+    return n1-n2
+
+def multiply(n1,n2):
+    return n1*n2
+
+def divide(n1,n2):
+    return n1/n2
+
+operations = {
+    "+" : add,
+    "-" : subtract,
+    "*" : multiply,
+    "/" : divide
+}
+
 first_num = int(input("What's the first number? "))
-print("+\n-\n*\n/")
+for symbol in operations:
+    print(symbol)
 operand  = input("Pick an operation: ")
 second_num = int(input("What's the second number? "))
 total = 0
 continue_calc = True
 
-def calculation(first_num, second_num, operand):
-    if operand == "+":
-        total = first_num + second_num
-        return total
-    elif operand == "-":
-        total = total = first_num - second_num
-        return total
-    elif operand == "*":
-        total = total = first_num * second_num
-        return total
-    elif operand == "/":
-        total = first_num / second_num
-        return total
-    else:
-        return "Invalid operation"
     
 while continue_calc:
-    total = calculation(first_num=first_num, second_num=second_num, operand=operand)
+    calculation_function = operations[operand]
+    total = calculation_function(first_num, second_num)
+
     print(f"{first_num} {operand} {second_num} = {total}")
     
     ask_continue = input(f"Do you want to continue calculating with {total}? Type 'y' or 'n': ")
