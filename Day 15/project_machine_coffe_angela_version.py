@@ -1,6 +1,7 @@
 from menu import MENU, resources, profit
 
 def is_resource_sufficient(order_ingredient):
+    """Return True if resource inggredients > order ingredient """
     for item in order_ingredient:
         if order_ingredient[item] > resources[item]:
             print(f"Sorry, there is not enough {item}")
@@ -9,6 +10,7 @@ def is_resource_sufficient(order_ingredient):
 
 
 def is_transaction_successful(money_received, drink_cost):
+    """Return True if transaction successfull"""
     if money_received >= drink_cost:
         global profit
         profit += drink_cost
@@ -20,6 +22,7 @@ def is_transaction_successful(money_received, drink_cost):
         return False
 
 def process_coins():
+    """"Return total calculated from coins inserted"""
     total = 0
     print("Please enter coins")
     total += int(input("How many quarter: ")) * 0.25
