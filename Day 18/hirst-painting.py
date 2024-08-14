@@ -15,6 +15,7 @@ tim = t.Turtle()
 
 tim.speed("fastest")
 tim.penup()
+tim.hideturtle()
 tim.setheading(225)
 tim.forward(300)
 tim.setheading(0)
