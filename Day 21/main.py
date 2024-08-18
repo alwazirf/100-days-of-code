@@ -37,8 +37,8 @@ while game_is_on:
     
     # detect collison with wall
     if x_pos > 280 or x_pos < -280 or y_pos > 280 or y_pos < -280:
-        score.game_over()
         game_is_on = False
+        score.game_over()
         
     #detect collison with tail
     # jumlah segment akan dipotong dari list 1 hingga terakhir, jika kepala(segment 1 pada list) menyentuh bagian segment lain dengan jarak dibawah 10 pixel maka game akan berakhir.
