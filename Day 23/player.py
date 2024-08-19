@@ -13,11 +13,16 @@ class Player(Turtle):
         self.color(random.choice(COLORS))
         self.penup()
         self.setheading(90)
-        self.goto(STARTING_POSITION)
-        self.finish = FINISH_LINE_Y
+        self.goto_start()
         
-    def move(self):
+    def go_up(self):
         self.forward(MOVE_DISTANCE)
         
-    def reset_position(self):
+    def goto_start(self):
         self.goto(STARTING_POSITION)
+        
+    def is_at_finish_line(self):
+        if self.ycor() > FINISH_LINE_Y:
+            return True
+        else:
+            return False

@@ -1,6 +1,6 @@
-FONT = ("Courier", 20, "normal")
-SPEED = 0.1
 from turtle import Turtle
+
+FONT = ("Courier", 20, "normal")
 
 class Scoreboard(Turtle):
     def __init__(self):
@@ -9,16 +9,15 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(-270, 260)
         self.level = 1
-        self.game_speed = SPEED
         self.update_score()
     
     def update_score(self):
         self.clear()
         self.write(f"Level: {self.level}", False, "left", FONT)
         
-    def update_level(self):
+    def increase_level(self):
         self.level+=1
-        self.game_speed *= 0.9
+        self.update_score()
         
     def game_over(self):
         self.goto(0,0)
