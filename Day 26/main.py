@@ -21,3 +21,12 @@ names = ["Alex", "Beth", "Caroline", "Dave", "Elanor", "Freddie"]
 new_names = [name for name in names if len(name) < 5]
 new_names2 = [name.upper() for name in names if len(name) > 5]
 print(new_names2)
+
+print("====================================================")
+import random
+
+students_score = {student:random.randint(1,100) for student in names}
+
+passed_students = {student:score for (student, score) in students_score.items() if score >= 60}
+print(students_score)
+print(passed_students)
