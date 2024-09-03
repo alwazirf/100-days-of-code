@@ -36,5 +36,4 @@ def is_night():
 
 if is_iss_overhead and is_night:
     print("Send emails")
-    print("apa aja")
-
+    print("Berubah")
