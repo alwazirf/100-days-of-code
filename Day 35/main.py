@@ -1,5 +1,5 @@
 import requests
-api_key = "e4bee0b9a9481421f6355b0e02e3044d"
+api_key = "dummy"
 city = "London"
 latitude = 18.643061
 longtitude = -91.830490
