@@ -1,6 +1,7 @@
 import requests
 from datetime import date, datetime
-import json
+from dotenv import load_dotenv, dotenv_values
+import os
 
 API_KEY = '886946032a03331787cfa3c6e42df5ec'
 APP_ID = '345c799c'
@@ -10,10 +11,12 @@ WEIGHT_KG = 63
 HEIGHT_CM = 166
 AGE = 25
 
+load_dotenv()
+
 
 headers = {
-    'x-app-key' : API_KEY,
-    'x-app-id': APP_ID
+    'x-app-key' : os.getenv("API_KEY"),
+    'x-app-id': os.getenv("APP_ID")
 }
 
 user_input = input('Tell me which exercise you did: ')
@@ -47,6 +50,3 @@ for exercise in data["exercises"]:
         }
     }
     shetty_res = requests.post(url=SHETTY_URL, headers=shetty_headers, json=sheet_inputs)
-
-# sheet_response = requests.post(SHETTY_URL, json=sheet_inputs)
-# print(sheet_response.text)
